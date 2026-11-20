@@ -1,0 +1,26 @@
+1 0.000000 malformed Ethernet
+2 0.001000 malformed ARP
+3 0.002000 malformed ARP
+4 0.003000 ARP op=3
+5 0.004000 malformed IPv4
+6 0.005000 malformed IPv4
+7 0.006000 malformed IPv4
+8 0.007000 malformed IPv4
+9 0.008000 malformed IPv4
+10 0.009000 IPv4 10.0.0.1 > 10.0.0.2 proto=17 bad-header-cksum
+11 0.010000 IPv4 10.0.0.1 > 10.0.0.2 proto=17 fragment
+12 0.011000 IPv4 10.0.0.1 > 10.0.0.2 proto=17 fragment
+13 0.012000 malformed TCP
+14 0.013000 malformed TCP
+15 0.014000 malformed TCP
+16 0.015000 malformed UDP
+17 0.016000 malformed UDP
+18 0.017000 malformed UDP
+19 0.018000 UDP 10.0.0.1:5000 > 10.0.0.2:6000 len=5 cksum=none
+20 0.019000 IPv4 10.0.0.1 > 10.0.0.2 proto=47
+21 0.020000 Ethernet type=0x0026
+22 0.021000 TCP 10.0.0.1:5000 > 10.0.0.2:80 [S] seq=1 ack=0 win=1024 len=0 cksum=ok
+23 0.022000 malformed IPv4
+
+UDP 10.0.0.1:5000 <> 10.0.0.2:6000 packets=1 bytes=47
+TCP 10.0.0.1:5000 <> 10.0.0.2:80 packets=1 bytes=54

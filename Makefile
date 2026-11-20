@@ -105,11 +105,14 @@ _all-exe: debug release debug-test test
 
 _all-text: test debug-test
 
-leak:
+# Default capture used by the AddressSanitizer leak check.
+PCAP ?= day-in-the-life.pcap
+
+leak: debug
 	@if [[ -e ./build/debug/$(APP_NAME)_d ]]; then \
-		ASAN_OPTIONS="detect_leaks=1" ./build/debug/$(APP_NAME)_d; \
+		ASAN_OPTIONS="detect_leaks=1" ./build/debug/$(APP_NAME)_d $(PCAP); \
 	else \
-		echo "Build the debug target first by running 'make debug'."; \
+		echo "Failed to build the debug target."; \
 		exit 1; \
 	fi
 
