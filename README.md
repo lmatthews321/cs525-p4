@@ -14,6 +14,8 @@ Creating the code for this project was quick with Copilot CLI, and I did not enc
 
 When cross-checking the results against Wireshark, the Conversations window matched my flow summary, although the conversations were not in the same order. There were some discrepancies when comparing the snaplen and malformed pcaps, which are explained further in the analysis section. It was nice to learn how to display checksums and turn off relative sequence numbers. I used the raw sequence numbers when comparing results, and they matched. In `snaplen.pcap`, Wireshark specifically states, "Packet size limited during capture," making it clear that the full packet was not captured.
 
+I did try running a capture myself using tcpdump and it returned 62 frames with a summary of 6 conversations. I did notice the cksum=bad but also some cksum=ok. The ok values were on the packets received which makes sense because they don't fall under the packets sent scenario where the network card computes the checksum after the capture has already copied the segment. This is a similar artifact to the 42 vs 60 byte ARP question. It's not surprising that there were 6 conversations when only one was to example.com. I think the other conversations were background services that the codespaces VM was using. 
+
 ## Design
 
 The project has three layers: reading capture records, parsing network protocols, and reporting decoded frames and flow statistics.
